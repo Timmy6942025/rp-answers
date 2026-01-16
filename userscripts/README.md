@@ -17,7 +17,7 @@ The script uses a placeholder URL for the book manifest. You must update this be
 
 ```javascript
 // Change this line in the script:
-const MANIFEST_URL = 'https://raw.githubusercontent.com/YOUR_USER/YOUR_REPO/main/data/book_manifest.json';
+const MANIFEST_URL = 'https://raw.githubusercontent.com/Timmy6942025/rp-answers/main/data/book_manifest.json';
 ```
 
 Replace `YOUR_USER` and `YOUR_REPO` with your GitHub username and repository name.
