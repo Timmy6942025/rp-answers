@@ -1,0 +1,156 @@
+{
+  "H": {
+    "stories": [
+      "AHIP Test Answers",
+      "EVERFI Pathways Financing Higher Education Answers",
+      "MRSA is a serious infection because"
+    ],
+    "qa": [
+      [
+        "Which two characteristics of diamond supports this choice?",
+        "[From: MRSA is a serious infection because]"
+      ],
+      [
+        "What does Excerpt 2 help explain about Excerpt 1?",
+        "[From: MRSA is a serious infection because]"
+      ]
+    ]
+  },
+  "I": {
+    "stories": [
+      "AHIP Test Answers",
+      "EVERFI Pathways Financing Higher Education Answers"
+    ],
+    "qa": [
+      [
+        "How Do I Answer The CISSP Exam Questions?",
+        "[From: AHIP Test Answers]"
+      ],
+      [
+        "How Do I Answer The CISSP Exam Questions?",
+        "[From: AHIP Test Answers]"
+      ],
+      [
+        "How Do I Answer The CISSP Exam Questions?",
+        "[From: EVERFI Pathways Financing Higher Education Answers]"
+      ],
+      [
+        "How Do I Answer The CISSP Exam Questions?",
+        "[From: EVERFI Pathways Financing Higher Education Answers]"
+      ]
+    ]
+  },
+  "J": {
+    "stories": [
+      "AHIP Test Answers",
+      "EVERFI Pathways Financing Higher Education Answers",
+      "EStewards is a program that certifies recyclers"
+    ],
+    "qa": [
+      [
+        "How Do I Answer The CISSP Exam Questions?",
+        "[From: AHIP Test Answers]"
+      ],
+      [
+        "How Do I Answer The CISSP Exam Questions?",
+        "[From: AHIP Test Answers]"
+      ],
+      [
+        "Which sentence is true about toxic elements in circuit boards?",
+        "[From: EStewards is a program that certifies recyclers]"
+      ],
+      [
+        "Which sentence supports the claim that Creative Recycling Systems is a model recycling facility?",
+        "[From: EStewards is a program that certifies recyclers]"
+      ],
+      [
+        "According to this selection, why is recycling ewaste so difficult?",
+        "[From: EStewards is a program that certifies recyclers]"
+      ]
+    ]
+  },
+  "L": {
+    "stories": [
+      "AHIP Test Answers",
+      "IBM Watson",
+      "IBM computer deep blue",
+      "BSG Comprehensive Exam Answers",
+      "US punishment"
+    ],
+    "qa": [
+      [
+        "Based on the selection, which statement is accurate?",
+        "[From: IBM Watson]"
+      ],
+      [
+        "Which two of the following phrases could best replace the words \u201cprovocative actions\u201d in this excerpt?",
+        "[From: IBM Watson]"
+      ],
+      [
+        "Which words best describe the Soviet\u2019s intent towards the United States following the U-2 incident?",
+        "[From: IBM Watson]"
+      ],
+      [
+        "Based on these, which statement about Francis Gary Powers is correct?",
+        "[From: IBM Watson]"
+      ],
+      [
+        "Based on the selection, which statement is accurate?",
+        "[From: IBM computer deep blue]"
+      ],
+      [
+        "Which two of the following phrases could best replace the words \u201cprovocative actions\u201d in this excerpt?",
+        "[From: IBM computer deep blue]"
+      ],
+      [
+        "Which words best describe the Soviet\u2019s intent towards the United States following the U-2 incident?",
+        "[From: IBM computer deep blue]"
+      ],
+      [
+        "Based on these, which statement about Francis Gary Powers is correct?",
+        "[From: IBM computer deep blue]"
+      ],
+      [
+        "The Istanbul Modern</td></tr><tr><td>Based on this excerpt, which of the following is an opinion?",
+        "[From: US punishment]"
+      ],
+      [
+        "What is she referring to?",
+        "[From: US punishment]"
+      ],
+      [
+        "Question</th><th>Answer</th></tr></thead><tbody><tr><td>What is the main idea of this selection?",
+        "[From: US punishment]"
+      ],
+      [
+        "What does the word \u201cglitch\u201d mean in this excerpt?",
+        "[From: US punishment]"
+      ]
+    ]
+  },
+  "M": {
+    "stories": [
+      "AHIP Test Answers",
+      "PALS Precourse Self Assessment Answers",
+      "ACLS Precourse Self Assessment Answers"
+    ],
+    "qa": [
+      [
+        "How Do I Answer The CISSP Exam Questions?",
+        "[From: AHIP Test Answers]"
+      ],
+      [
+        "How Do I Answer The CISSP Exam Questions?",
+        "[From: AHIP Test Answers]"
+      ],
+      [
+        "How Do I Answer The CISSP Exam Questions?",
+        "[From: ACLS Precourse Self Assessment Answers]"
+      ],
+      [
+        "How Do I Answer The CISSP Exam Questions?",
+        "[From: ACLS Precourse Self Assessment Answers]"
+      ]
+    ]
+  }
+}

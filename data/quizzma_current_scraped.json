@@ -1,0 +1,966 @@
+{
+  "source": "quizzma.com (live scrape)",
+  "total": 192,
+  "questions": [
+    {
+      "question": "MousemoveIgnored?",
+      "level": "A",
+      "source": "quizzma.com"
+    },
+    {
+      "question": "ActionTriggered&&(\"string\"==typeof arguments[0]||arguments[0]instanceof String?",
+      "level": "A",
+      "source": "quizzma.com"
+    },
+    {
+      "question": "WindowLoadedFired?",
+      "level": "A",
+      "source": "quizzma.com"
+    },
+    {
+      "question": "Attribute(\"data-rocket-src\")?",
+      "level": "A",
+      "source": "quizzma.com"
+    },
+    {
+      "question": "Attribute(\"data-rocket-type\")?",
+      "level": "A",
+      "source": "quizzma.com"
+    },
+    {
+      "question": "Attribute(\"src\")?",
+      "level": "A",
+      "source": "quizzma.com"
+    },
+    {
+      "question": "Attribute(\"data-rocket-src\");i?",
+      "level": "A",
+      "source": "quizzma.com"
+    },
+    {
+      "question": "Do you need help with your Reading Plus class?",
+      "level": "A",
+      "source": "quizzma.com"
+    },
+    {
+      "question": "What is the capital of Egypt?",
+      "level": "A",
+      "source": "quizzma.com"
+    },
+    {
+      "question": "Lost your password?",
+      "level": "A",
+      "source": "quizzma.com"
+    },
+    {
+      "question": "How can I help you?",
+      "level": "A",
+      "source": "quizzma.com"
+    },
+    {
+      "question": "The minimum characters is\",\"wpqa_error_limit\":\"Sorry, The maximum characters is\",\"sure_delete_comment\":\"Are you sure you want to delete the comment?",
+      "level": "A",
+      "source": "quizzma.com"
+    },
+    {
+      "question": "Are you sure you want to delete the answer?",
+      "level": "A",
+      "source": "quizzma.com"
+    },
+    {
+      "question": "Are you sure you want to delete the image?",
+      "level": "A",
+      "source": "quizzma.com"
+    },
+    {
+      "question": "Are you sure you want to delete the attachment?",
+      "level": "A",
+      "source": "quizzma.com"
+    },
+    {
+      "question": "Are you sure you want to delete the question?",
+      "level": "A",
+      "source": "quizzma.com"
+    },
+    {
+      "question": "Are you sure you want to delete the post?",
+      "level": "A",
+      "source": "quizzma.com"
+    },
+    {
+      "question": "RocketPreloadLinksConfig = {\"excludeUris\":\"/(?",
+      "level": "A",
+      "source": "quizzma.com"
+    },
+    {
+      "question": "Pathname\",value:function(e,t){var n=t?",
+      "level": "A",
+      "source": "quizzma.com"
+    },
+    {
+      "question": "AddTrailingSlash(n)?",
+      "level": "A",
+      "source": "quizzma.com"
+    },
+    {
+      "question": "This website is like a Rocket, isn't it?",
+      "level": "A",
+      "source": "quizzma.com"
+    },
+    {
+      "question": "Better, Faster, More 3 The Lottery Ticket 4 The Mouse 5 ESOL 6 To Build A Fire 7 The Tale of Sir Ivaine 8 The Giant Builder 9 Did Someone Say Chocolate?",
+      "level": "E",
+      "source": "quizzma.com"
+    },
+    {
+      "question": "QuestionAnswerWhat is the main idea of this story?",
+      "level": "E",
+      "source": "quizzma.com"
+    },
+    {
+      "question": "QuestionAnswerWhich of the following shows the central idea that the author develops in this text?",
+      "level": "H",
+      "source": "quizzma.com"
+    },
+    {
+      "question": "Is It Skill or Luck?",
+      "level": "H",
+      "source": "quizzma.com"
+    },
+    {
+      "question": "Question</th><th>Answer</th></tr></thead><tbody><tr><td>Which of the following shows the central idea that the author develops in this text?",
+      "level": "H",
+      "source": "quizzma.com"
+    },
+    {
+      "question": "Which two of the following competencies does Disney Demontrate based on this excerpt?",
+      "level": "H",
+      "source": "quizzma.com"
+    },
+    {
+      "question": "Which idea about planets did both Pythagoras and Johannes Kepler believe?",
+      "level": "H",
+      "source": "quizzma.com"
+    },
+    {
+      "question": "Which two can be considered main ideas of selection?",
+      "level": "H",
+      "source": "quizzma.com"
+    },
+    {
+      "question": "What does it tell you about tides?",
+      "level": "H",
+      "source": "quizzma.com"
+    },
+    {
+      "question": "Do you enjoy being active?",
+      "level": "H",
+      "source": "quizzma.com"
+    },
+    {
+      "question": "Are you interested in science?",
+      "level": "H",
+      "source": "quizzma.com"
+    },
+    {
+      "question": "Do you like to help others?",
+      "level": "H",
+      "source": "quizzma.com"
+    },
+    {
+      "question": "The text states that more athletic trainers will be needed in the future for which two reasons?",
+      "level": "H",
+      "source": "quizzma.com"
+    },
+    {
+      "question": "Why are computers and computer knowledge important for athletic trainers?",
+      "level": "H",
+      "source": "quizzma.com"
+    },
+    {
+      "question": "How do these two excerpts from the selection work together?",
+      "level": "H",
+      "source": "quizzma.com"
+    },
+    {
+      "question": "Based on this excerpt, which two of the following show hurdies Park Geun-Hye conquered to become South Korea\u2019s first female president?",
+      "level": "H",
+      "source": "quizzma.com"
+    },
+    {
+      "question": "Which statement best describes the information in this excerpt?",
+      "level": "H",
+      "source": "quizzma.com"
+    },
+    {
+      "question": "They too get real satisfaction from enabling others to enjoy the love and\u2026</td></tr><tr><td>What does it mean when the author says, \u201cBy now\u2026\u201d?",
+      "level": "H",
+      "source": "quizzma.com"
+    },
+    {
+      "question": "Which sense does the author highlight in\u2026?",
+      "level": "H",
+      "source": "quizzma.com"
+    },
+    {
+      "question": "Why does the author say a therapy animal has an advantage over a human caretaker?",
+      "level": "H",
+      "source": "quizzma.com"
+    },
+    {
+      "question": "Which two ways are service animals different from therapy animals?",
+      "level": "H",
+      "source": "quizzma.com"
+    },
+    {
+      "question": "Based on what you have read, what could happen if forensic experts fo their job incorrectly?",
+      "level": "H",
+      "source": "quizzma.com"
+    },
+    {
+      "question": "In the nearly 20 years that Frederick Olmstead worked on the Central Park project, which two jobs titles did he hold?",
+      "level": "H",
+      "source": "quizzma.com"
+    },
+    {
+      "question": "Why does the author begin this way?",
+      "level": "H",
+      "source": "quizzma.com"
+    },
+    {
+      "question": "Park to the general public</td></tr><tr><td>What was the effect of the Central Park project on Frederick Olmstead?",
+      "level": "H",
+      "source": "quizzma.com"
+    },
+    {
+      "question": "What sort of picture do they provide about the work of the Sanitary Commission?",
+      "level": "H",
+      "source": "quizzma.com"
+    },
+    {
+      "question": "In what way were the park pathways proposed in the Greensward plan considered innovative?",
+      "level": "H",
+      "source": "quizzma.com"
+    },
+    {
+      "question": "What was Frederick Olmstead\u2019s goal in excluding elaborate roads and architecture from the park?",
+      "level": "H",
+      "source": "quizzma.com"
+    },
+    {
+      "question": "What was the role of the French government in the American Revolutionary War?",
+      "level": "H",
+      "source": "quizzma.com"
+    },
+    {
+      "question": "As America struggled to shape itself as a new country, what was the immediate effect on the rest of the world?",
+      "level": "H",
+      "source": "quizzma.com"
+    },
+    {
+      "question": "What did the Stamp Act do?",
+      "level": "H",
+      "source": "quizzma.com"
+    },
+    {
+      "question": "What happened to cause the tax policy to change?",
+      "level": "H",
+      "source": "quizzma.com"
+    },
+    {
+      "question": "What were the demands of the 21st Century Tea Party?",
+      "level": "H",
+      "source": "quizzma.com"
+    },
+    {
+      "question": "What was the tax situation in the British colonies in North America when the colonies were first settled?",
+      "level": "H",
+      "source": "quizzma.com"
+    },
+    {
+      "question": "Which two phrases in this excerpt describe the types of natural resources used in traditional farming methods?",
+      "level": "H",
+      "source": "quizzma.com"
+    },
+    {
+      "question": "What is the most important benefit to farmers who use an aquaponic system?",
+      "level": "H",
+      "source": "quizzma.com"
+    },
+    {
+      "question": "Choose the sentence in this excerpt that indicates why traditional farming use more water than hydroponic farming?",
+      "level": "H",
+      "source": "quizzma.com"
+    },
+    {
+      "question": "QuestionAnswerWhat is the main idea of this selection?",
+      "level": "I",
+      "source": "quizzma.com"
+    },
+    {
+      "question": "Have You Ever Seen Pink Snow?",
+      "level": "I",
+      "source": "quizzma.com"
+    },
+    {
+      "question": "What does the word \u201cdissenters\u201d mean in this excerpt?",
+      "level": "I",
+      "source": "quizzma.com"
+    },
+    {
+      "question": "Lyme Regis being\u2026</td><td>erosion</td></tr><tr><td>What effect did Mary\u2019s near-death experience from lightning strike have on her?",
+      "level": "I",
+      "source": "quizzma.com"
+    },
+    {
+      "question": "What is the author\u2019s purpose in writing this selection?",
+      "level": "I",
+      "source": "quizzma.com"
+    },
+    {
+      "question": "What are two reasons why Mary was not recognized in the scientific community during her lifetime?",
+      "level": "I",
+      "source": "quizzma.com"
+    },
+    {
+      "question": "What does this selection thell you about the life expectancy of childrem in 19th-century Lyme Regis?",
+      "level": "I",
+      "source": "quizzma.com"
+    },
+    {
+      "question": "Have you ever felt that life is just work, work, work?",
+      "level": "I",
+      "source": "quizzma.com"
+    },
+    {
+      "question": "Which to comparisons can be drawn between the man Thoreau sees in the morning and the man he sees in the evening?",
+      "level": "I",
+      "source": "quizzma.com"
+    },
+    {
+      "question": "Which two sentences best summarize this excerpt?",
+      "level": "I",
+      "source": "quizzma.com"
+    },
+    {
+      "question": "How is this part of the selection written?",
+      "level": "I",
+      "source": "quizzma.com"
+    },
+    {
+      "question": "In this ecerpt, what did Thoreau mean by \u201cthe real business of life\u201d?",
+      "level": "I",
+      "source": "quizzma.com"
+    },
+    {
+      "question": "Illusions of worthlessness</td></tr><tr><td>In allegory of the cave, which two of the following do the chained mem symbolize?",
+      "level": "I",
+      "source": "quizzma.com"
+    },
+    {
+      "question": "Which one of the following explains what allowed police to arrest patrons of the Stonewall Inn at the time of the 1969 riots?",
+      "level": "I",
+      "source": "quizzma.com"
+    },
+    {
+      "question": "Which two of the following supports the significance of this influential book?",
+      "level": "I",
+      "source": "quizzma.com"
+    },
+    {
+      "question": "This selection primarily</td><td>Reports the problems associated with sugar consumption</td></tr><tr><td>Which two things threaten sugar\u2019s use in food?",
+      "level": "I",
+      "source": "quizzma.com"
+    },
+    {
+      "question": "Which are two major contributors to heart disease?",
+      "level": "I",
+      "source": "quizzma.com"
+    },
+    {
+      "question": "What are two effects of eating an abundance of sugar?",
+      "level": "I",
+      "source": "quizzma.com"
+    },
+    {
+      "question": "When sugar\u2026<br>The brain\u2026<br>The hormones\u2026<br>The person</td></tr><tr><td>How do these two excerpts work together?",
+      "level": "I",
+      "source": "quizzma.com"
+    },
+    {
+      "question": "In this excerpt, what does the phrase \u201cfluid landscape\u201d mean?",
+      "level": "I",
+      "source": "quizzma.com"
+    },
+    {
+      "question": "A changing shape</td></tr><tr><td>Based on this excerpt, what can you conclude from the sands of Florida\u2019s Emerald Coast?",
+      "level": "I",
+      "source": "quizzma.com"
+    },
+    {
+      "question": "Wind can carry sand long distances to it final destination</td></tr><tr><td>What determines the color of sand?",
+      "level": "I",
+      "source": "quizzma.com"
+    },
+    {
+      "question": "Magma</td></tr><tr><td>What are two parts of the bioerosion process that makes sandy beaches?",
+      "level": "I",
+      "source": "quizzma.com"
+    },
+    {
+      "question": "Which statement about Sloane is correct?",
+      "level": "I",
+      "source": "quizzma.com"
+    },
+    {
+      "question": "In this excerpt, what does the word \u201cobfuscate\u201d most clearly mean?",
+      "level": "I",
+      "source": "quizzma.com"
+    },
+    {
+      "question": "Which two factors do scientists cite as the reason why coral reefs are being impacted?",
+      "level": "I",
+      "source": "quizzma.com"
+    },
+    {
+      "question": "Which two techniques does the author use to support his points?",
+      "level": "I",
+      "source": "quizzma.com"
+    },
+    {
+      "question": "What does this comparison reveal to the reader?",
+      "level": "I",
+      "source": "quizzma.com"
+    },
+    {
+      "question": "Which of the following sentences best summarizes the excerpt?",
+      "level": "I",
+      "source": "quizzma.com"
+    },
+    {
+      "question": "What is in the deepest depths of the ocean?",
+      "level": "I",
+      "source": "quizzma.com"
+    },
+    {
+      "question": "How does this image relate to this selection?",
+      "level": "I",
+      "source": "quizzma.com"
+    },
+    {
+      "question": "Which detail from the selection shows why researchers who filmed a giant squid made national news?",
+      "level": "I",
+      "source": "quizzma.com"
+    },
+    {
+      "question": "Which one of these questions shows how these two excerpts work together?",
+      "level": "I",
+      "source": "quizzma.com"
+    },
+    {
+      "question": "QuestionAnswerWhat is the main idea?",
+      "level": "J",
+      "source": "quizzma.com"
+    },
+    {
+      "question": "Is That A Bug On Your Plate?",
+      "level": "J",
+      "source": "quizzma.com"
+    },
+    {
+      "question": "Based on this selection, which two factors are contributing to the decline of print newspapers?",
+      "level": "J",
+      "source": "quizzma.com"
+    },
+    {
+      "question": "Based on the this text, which one of these questions most strongly suggests the significance of \u201cauthenticity\u201d relate to more than forgeries?",
+      "level": "J",
+      "source": "quizzma.com"
+    },
+    {
+      "question": "If a masterpiece has been heavily restored or repaired, can it still be considered authentic?",
+      "level": "J",
+      "source": "quizzma.com"
+    },
+    {
+      "question": "Which text structure shows how the author has organized the information in this excerpt?",
+      "level": "J",
+      "source": "quizzma.com"
+    },
+    {
+      "question": "Which detail from the text best supports Georgina Adam\u2019s argument that \u201cit\u2019s just not that easy\u201d?",
+      "level": "J",
+      "source": "quizzma.com"
+    },
+    {
+      "question": "Which phrase from the text shows what the author means by \u201cimpeccable\u201d in this excerpt?",
+      "level": "J",
+      "source": "quizzma.com"
+    },
+    {
+      "question": "Which phrase from the text supports this quality?",
+      "level": "J",
+      "source": "quizzma.com"
+    },
+    {
+      "question": "Which one of the following phrases from the text shows the author\u2019s use of simile?",
+      "level": "J",
+      "source": "quizzma.com"
+    },
+    {
+      "question": "How does this image relate to the this selection?",
+      "level": "J",
+      "source": "quizzma.com"
+    },
+    {
+      "question": "As Martin prioritizes objects that needs to be seen in his lab, which two of the following are signs that helps him quickly identify possible forgeries?",
+      "level": "J",
+      "source": "quizzma.com"
+    },
+    {
+      "question": "What question does the ending intend to leave the reader with?",
+      "level": "J",
+      "source": "quizzma.com"
+    },
+    {
+      "question": "Is the perfect forgery even possible?",
+      "level": "J",
+      "source": "quizzma.com"
+    },
+    {
+      "question": "Which detail from the text best supports this claim?",
+      "level": "J",
+      "source": "quizzma.com"
+    },
+    {
+      "question": "A gallery that was sued by 10 buyers over the authenticity of the paintings it sold</td></tr><tr><td>What is the significance of paint to Martin\u2019s work?",
+      "level": "J",
+      "source": "quizzma.com"
+    },
+    {
+      "question": "What latter led Knoedler to hire experts to attack Martin\u2019s credibility in court?",
+      "level": "J",
+      "source": "quizzma.com"
+    },
+    {
+      "question": "Why is the function of the Treasury discussed?",
+      "level": "J",
+      "source": "quizzma.com"
+    },
+    {
+      "question": "Which two statements best explains why Jessica Goldman prefers to run solo?",
+      "level": "J",
+      "source": "quizzma.com"
+    },
+    {
+      "question": "Based on this selection, what was it?",
+      "level": "J",
+      "source": "quizzma.com"
+    },
+    {
+      "question": "Which two details did he record in a diary on a daily basis?",
+      "level": "J",
+      "source": "quizzma.com"
+    },
+    {
+      "question": "Which statement best summarizes the idea expressed in this excerpt?",
+      "level": "J",
+      "source": "quizzma.com"
+    },
+    {
+      "question": "Which statement below would the author most likely agree with?",
+      "level": "J",
+      "source": "quizzma.com"
+    },
+    {
+      "question": "What has been happening to me?",
+      "level": "J",
+      "source": "quizzma.com"
+    },
+    {
+      "question": "How does the mood shift from the first excerpt to the second?",
+      "level": "J",
+      "source": "quizzma.com"
+    },
+    {
+      "question": "Based on the two excerpts from this selection, what symbol does the fur stole most likely represent?",
+      "level": "J",
+      "source": "quizzma.com"
+    },
+    {
+      "question": "Brill focus on the most when she is observing other people?",
+      "level": "J",
+      "source": "quizzma.com"
+    },
+    {
+      "question": "How does the \u201cgentlemen in grey\u201d respond to the woman wearing the \u201cermine toque\u201d?",
+      "level": "J",
+      "source": "quizzma.com"
+    },
+    {
+      "question": "Which one of the following best describes President Wilson\u2019s attitude in this excerpt from the selection?",
+      "level": "J",
+      "source": "quizzma.com"
+    },
+    {
+      "question": "Which two of the following statements can you most strongly infer from this excerpt?",
+      "level": "J",
+      "source": "quizzma.com"
+    },
+    {
+      "question": "Which two of the following can you deduce from these two excerpts?",
+      "level": "J",
+      "source": "quizzma.com"
+    },
+    {
+      "question": "How did the United States\u2019 relationship to the world change when President Wilson declared war on Germany in 1917?",
+      "level": "J",
+      "source": "quizzma.com"
+    },
+    {
+      "question": "Based on the excerpt, which two of the following events triggered President Wilson to declare war on Germany?",
+      "level": "J",
+      "source": "quizzma.com"
+    },
+    {
+      "question": "Tweeting the News 2 Madagascar\u2019s Poacher Problem Part 1 3 Madagascar\u2019s Poacher Problem Part 2 4 The Power of the Printed Page 5 Trend Or Tradition?",
+      "level": "K",
+      "source": "quizzma.com"
+    },
+    {
+      "question": "QuestionAnswerWhat is the central idea of this selection?",
+      "level": "K",
+      "source": "quizzma.com"
+    },
+    {
+      "question": "Thinking Computers / Monsters or Machines?",
+      "level": "L",
+      "source": "quizzma.com"
+    },
+    {
+      "question": "C and Melted Shoes / Is This the World\u2019s Toughest Race?",
+      "level": "L",
+      "source": "quizzma.com"
+    },
+    {
+      "question": "Which sentence probably describes Seeger\u2019s state of mind when he refused to testify before Congress about suspected communist sympathizers?",
+      "level": "L",
+      "source": "quizzma.com"
+    },
+    {
+      "question": "Which two songs did Seeger perform with his quartet, the Weavers?",
+      "level": "L",
+      "source": "quizzma.com"
+    },
+    {
+      "question": "Wimoweh\u201d<br>\u201cGoodnight Irene\u201d</td></tr><tr><td>Why did South African government officials take away Miriam Makeba\u2019s passport?",
+      "level": "L",
+      "source": "quizzma.com"
+    },
+    {
+      "question": "In this excerpt, what does the inscription on Seeger\u2019s banjo mean?",
+      "level": "L",
+      "source": "quizzma.com"
+    },
+    {
+      "question": "Which of the following marked a turning point in Makeba\u2019s career?",
+      "level": "L",
+      "source": "quizzma.com"
+    },
+    {
+      "question": "Her marriage to Stokely Carmichael</td></tr><tr><td>How does this image reflect the issues in South Africa that Makeba addressed in her songs?",
+      "level": "L",
+      "source": "quizzma.com"
+    },
+    {
+      "question": "Which sentence supports the author\u2019s statement that song can be used as a catalyst for change?",
+      "level": "L",
+      "source": "quizzma.com"
+    },
+    {
+      "question": "Why was Makeba\u2019s performance in South Africa in 1990 so satisfying to her?",
+      "level": "L",
+      "source": "quizzma.com"
+    },
+    {
+      "question": "What does the word \u201ctrifle\u201d mean in this Revolutionary War song?",
+      "level": "L",
+      "source": "quizzma.com"
+    },
+    {
+      "question": "Flicked, flocked, brandishing</td><td>Flicked, flocked, brandishing</td></tr><tr><td>How does this image relate to an occurrence in the selection?",
+      "level": "L",
+      "source": "quizzma.com"
+    },
+    {
+      "question": "For which two of the following reasons could the Hornets\u2019 optimism in their April 7, 2006, game against the Suns be considered commendable?",
+      "level": "L",
+      "source": "quizzma.com"
+    },
+    {
+      "question": "Which of the following words could replace \u201cproliferating\u201d in this excerpt?",
+      "level": "L",
+      "source": "quizzma.com"
+    },
+    {
+      "question": "From a psychological perspective, why might fans find a sports blooper so captivating?",
+      "level": "L",
+      "source": "quizzma.com"
+    },
+    {
+      "question": "Mining for gems\u2026</td></tr><tr><td>What evidence does the author\u2026</td><td>Escaped slaves\u2026</td></tr><tr><td>How do these two excerpts work together?",
+      "level": "L",
+      "source": "quizzma.com"
+    },
+    {
+      "question": "How do they relate to one another?",
+      "level": "L",
+      "source": "quizzma.com"
+    },
+    {
+      "question": "What is the point of view of this selection?",
+      "level": "L",
+      "source": "quizzma.com"
+    },
+    {
+      "question": "What evidence from the selection does the author give that HSL could be more beneficial to deaf humans than ASL?",
+      "level": "L",
+      "source": "quizzma.com"
+    },
+    {
+      "question": "Which quote from the text best reflects the author\u2019s point of view in writing this selection?",
+      "level": "L",
+      "source": "quizzma.com"
+    },
+    {
+      "question": "Which statement best describes why the author includes this excerpt?",
+      "level": "L",
+      "source": "quizzma.com"
+    },
+    {
+      "question": "An individual who does not support HSL would make which two of the following claims?",
+      "level": "L",
+      "source": "quizzma.com"
+    },
+    {
+      "question": "Which quote from the selection confirms why it is vital that linguists prevent HSL from becoming extinct?",
+      "level": "L",
+      "source": "quizzma.com"
+    },
+    {
+      "question": "What do they do with this tool, and why do they do it?",
+      "level": "L",
+      "source": "quizzma.com"
+    },
+    {
+      "question": "Which two of the following statements are correct based on the information provided in the excerpts?",
+      "level": "L",
+      "source": "quizzma.com"
+    },
+    {
+      "question": "Considering the topic of this selection, what other name could also be considered aptonymic?",
+      "level": "L",
+      "source": "quizzma.com"
+    },
+    {
+      "question": "What significant claim do both excerpts share?",
+      "level": "L",
+      "source": "quizzma.com"
+    },
+    {
+      "question": "Which statement about newly built tech-eco-utopias is correct?",
+      "level": "L",
+      "source": "quizzma.com"
+    },
+    {
+      "question": "Which of the following statements best describes why the author begins the selection discussing Kim Jong-wins apartment?",
+      "level": "L",
+      "source": "quizzma.com"
+    },
+    {
+      "question": "How does this image connect to what you have read in this selection?",
+      "level": "L",
+      "source": "quizzma.com"
+    },
+    {
+      "question": "Based on what you have read, what are two reasons these projects can be extremely difficult?",
+      "level": "L",
+      "source": "quizzma.com"
+    },
+    {
+      "question": "What\u2019s A Biopolis?",
+      "level": "M",
+      "source": "quizzma.com"
+    },
+    {
+      "question": "Palamon had escaped from prison<br>Arcite had returned to Athens</td></tr><tr><td>How do these two excerpts work together?",
+      "level": "M",
+      "source": "quizzma.com"
+    },
+    {
+      "question": "What does the instrument being played in this image have to do with the selection?",
+      "level": "M",
+      "source": "quizzma.com"
+    },
+    {
+      "question": "After this conversation with the king, Palamon and Arcite are described as expressing which one of the following emotions?",
+      "level": "M",
+      "source": "quizzma.com"
+    },
+    {
+      "question": "Euphoria</td></tr><tr><td>What is the significance of this excerpt?",
+      "level": "M",
+      "source": "quizzma.com"
+    },
+    {
+      "question": "What line or excerpt indicates that Gregor initially didn\u2019t realize the extent of his change?",
+      "level": "M",
+      "source": "quizzma.com"
+    },
+    {
+      "question": "Based on Gregor\u2019s attitudes and actions in the selection, his locked door is a symbol representing which two of the following things?",
+      "level": "M",
+      "source": "quizzma.com"
+    },
+    {
+      "question": "His alienation from his family</td></tr><tr><td>Based on this excerpt, why was Gregor comforted at the thought of the doctor and the locksmith?",
+      "level": "M",
+      "source": "quizzma.com"
+    },
+    {
+      "question": "Murmer</td></tr><tr><td>Gregor managed to open the door by doing which two of the following things?",
+      "level": "M",
+      "source": "quizzma.com"
+    },
+    {
+      "question": "What do these excerpts about Gregor\u2019s sister, in combination with her absence in this selection, suggest?",
+      "level": "M",
+      "source": "quizzma.com"
+    },
+    {
+      "question": "Based on the text, why is the Self-Transcendence 3,100-Race held on a short, looping course?",
+      "level": "M",
+      "source": "quizzma.com"
+    },
+    {
+      "question": "Why is \u201cSelf-Transcendence\u201d an appropriate name for the 3,100 race?",
+      "level": "M",
+      "source": "quizzma.com"
+    },
+    {
+      "question": "Why was Stage Five considered to be the \u201cmost interminable\u201d leg of The Last Desert race in 2008?",
+      "level": "M",
+      "source": "quizzma.com"
+    },
+    {
+      "question": "Based on this selection, what condition is this dehydrated runner displaying?",
+      "level": "M",
+      "source": "quizzma.com"
+    },
+    {
+      "question": "Which sentence supports the author\u2019s claim that ultra-marathon runners can overcome injury with positive thinking?",
+      "level": "M",
+      "source": "quizzma.com"
+    },
+    {
+      "question": "Why was it so amazing that Kyung Tae Song finished the Four Deserts Series?",
+      "level": "M",
+      "source": "quizzma.com"
+    },
+    {
+      "question": "Why does the author mention the $12,000 entrance fee for The Last Desert Race?",
+      "level": "M",
+      "source": "quizzma.com"
+    },
+    {
+      "question": "Based on this selection, an experienced extreme athlete would\u2026 in which two areas?",
+      "level": "M",
+      "source": "quizzma.com"
+    },
+    {
+      "question": "This story suggests that which of the following should be excluded from the resume of a college student who is about to graduate?",
+      "level": "M",
+      "source": "quizzma.com"
+    },
+    {
+      "question": "Which of the following students is exercising proper etiquette and ethics when meeting with professionals?",
+      "level": "M",
+      "source": "quizzma.com"
+    },
+    {
+      "question": "Which two of the following most strongly support that Mark Segal\u2019s protest at CBS news influenced the public\u2019s view of gay rights?",
+      "level": "M",
+      "source": "quizzma.com"
+    },
+    {
+      "question": "What does the phrase \u201cassimilationist goals\u201d mean in the context of this excerpt?",
+      "level": "M",
+      "source": "quizzma.com"
+    },
+    {
+      "question": "Why does the author describe Melitta Schiller and Hanna Reitsch as having the \u201crare position\u201d of working for the German military?",
+      "level": "M",
+      "source": "quizzma.com"
+    },
+    {
+      "question": "What does this excerpt tell you about the beliefs of the Piro Indians?",
+      "level": "M",
+      "source": "quizzma.com"
+    },
+    {
+      "question": "Why was Uini insulted that first day when he awoke in confinement?",
+      "level": "M",
+      "source": "quizzma.com"
+    },
+    {
+      "question": "What is meant by description of Paititi as \u201cexisting both within and beyond the limits of space and time\u201d?",
+      "level": "M",
+      "source": "quizzma.com"
+    },
+    {
+      "question": "What was the author\u2019s purpose in writing this story?",
+      "level": "M",
+      "source": "quizzma.com"
+    },
+    {
+      "question": "What does the author mean\u2026</td><td>They have resulted in\u2026</td></tr><tr><td>Why does the author mention \u201cSesame Street?",
+      "level": "M",
+      "source": "quizzma.com"
+    },
+    {
+      "question": "Which one of the following statements is correct?",
+      "level": "M",
+      "source": "quizzma.com"
+    },
+    {
+      "question": "Which of the following statements best confirms the impact the current zoning policy has on the development of the pencil-thin towers?",
+      "level": "M",
+      "source": "quizzma.com"
+    },
+    {
+      "question": "Which of the following was the most significant hindrance in recruiting and retaining labor for construction in Panama?",
+      "level": "M",
+      "source": "quizzma.com"
+    },
+    {
+      "question": "The prevalence of diseases in the region\u2026</td></tr><tr><td>Which word best describes Ferdinand de Lesseps at the beginning of his Panama Canal project?",
+      "level": "M",
+      "source": "quizzma.com"
+    },
+    {
+      "question": "Grandiose\u2026</td></tr><tr><td>In which two ways did Ferdinand de Lesseps\u2019 plan for a canal differ from the American plan?",
+      "level": "M",
+      "source": "quizzma.com"
+    },
+    {
+      "question": "Gorgas able to eradicate yellow fever?",
+      "level": "M",
+      "source": "quizzma.com"
+    },
+    {
+      "question": "Why did the California gold rush trigger the need for a quicker route between the Atlantic and Pacific oceans?",
+      "level": "M",
+      "source": "quizzma.com"
+    }
+  ]
+}
