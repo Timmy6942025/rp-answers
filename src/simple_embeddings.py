@@ -14,7 +14,7 @@ def main():
     print("=" * 60)
     print()
 
-    data_file = "data/processed/reading_plus_data.json"
+    data_file = "data/ULTRACOMPLETE_V4_reading_plus.json"
     output_file = "data/embeddings/embeddings_db.npz"
 
     print(f"Loading data from {data_file}...")
@@ -25,15 +25,27 @@ def main():
     all_questions = []
     question_to_id = {}
 
-    for level_name, level_data in data.get("levels", {}).items():
-        for story in level_data.get("stories", []):
-            for question in story.get("questions", []):
-                question_text = question.get("question_text", "")
-                q_id = question.get("id", "")
+    # Handle flat questions structure (ULTRACOMPLETE_V4)
+    if "questions" in data:
+        for question in data["questions"]:
+            # Check for different question text keys (question_text vs question)
+            question_text = question.get("question_text", question.get("question", ""))
+            q_id = question.get("id", "")
 
-                if question_text:
-                    all_questions.append(question_text)
-                    question_to_id[question_text] = q_id
+            if question_text:
+                all_questions.append(question_text)
+                question_to_id[question_text] = q_id
+    # Handle nested levels→stories→questions structure
+    elif "levels" in data:
+        for level_name, level_data in data.get("levels", {}).items():
+            for story in level_data.get("stories", []):
+                for question in story.get("questions", []):
+                    question_text = question.get("question_text", question.get("question", ""))
+                    q_id = question.get("id", "")
+
+                    if question_text:
+                        all_questions.append(question_text)
+                        question_to_id[question_text] = q_id
 
     print(f"Total questions: {len(all_questions)}")
 

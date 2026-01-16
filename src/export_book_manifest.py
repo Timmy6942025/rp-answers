@@ -12,6 +12,11 @@ NOISE_PATTERNS = [
     "quizzma",
     "unknown",
     "other reading plus",
+    "conclusion",
+    "answer:",
+    "question:",
+    "primarily",
+    "mostly about",
 ]
 
 LEVEL_PATTERN = r"^level [a-z]$"
@@ -37,6 +42,12 @@ def is_noise_title(title):
     if title_lower.startswith("level ") and len(title_lower) <= 8:
         if title_lower[6:7].isalpha():
             return True
+
+    if len(title_lower.split()) <= 2:
+        return True
+
+    if any(char in '?!' for char in title_lower):
+        return True
 
     return False
 

@@ -13,7 +13,7 @@
     'use strict';
 
     const CONFIG = {
-        selector: '#story-card',
+        selector: '[class*="c-book"]',
         highlightClass: 'rp-has-answers',
         badgeHtml: '<span class="rp-answer-badge" style="position:absolute;top:4px;right:4px;background:#22c55e;color:#fff;padding:2px 6px;border-radius:4px;font-size:10px;font-weight:bold;z-index:100;">Has Answers</span>',
         debugMode: true

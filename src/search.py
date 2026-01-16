@@ -14,7 +14,7 @@ from typing import List, Dict, Tuple
 
 
 class QuestionSearchEngine:
-    def __init__(self, data_file="data/processed/reading_plus_data.json"):
+    def __init__(self, data_file="data/ULTRACOMPLETE_V4_reading_plus.json"):
         with open(data_file) as f:
             self.data = json.load(f)
 
@@ -54,17 +54,33 @@ class QuestionSearchEngine:
 
     def _build_question_index(self):
         index = {}
-        for level_name, level_data in self.data.get("levels", {}).items():
-            for story in level_data.get("stories", []):
-                for question in story.get("questions", []):
-                    q_id = question["id"]
+        
+        # Handle flat questions structure (ULTRACOMPLETE_V4)
+        if "questions" in self.data:
+            for question in self.data["questions"]:
+                q_id = question.get("id", "")
+                if q_id:
                     index[q_id] = {
-                        "question": question["question_text"],
-                        "answer": question["answer"],
-                        "level": level_name,
-                        "story_title": story["title"],
+                        "question": question.get("question_text", question.get("question", "")),
+                        "answer": question.get("answer", ""),
+                        "level": question.get("level", ""),
+                        "story_title": question.get("story", ""),
                         "keywords": question.get("keywords", []),
                     }
+        # Handle nested levels→stories→questions structure
+        elif "levels" in self.data:
+            for level_name, level_data in self.data.get("levels", {}).items():
+                for story in level_data.get("stories", []):
+                    for question in story.get("questions", []):
+                        q_id = question["id"]
+                        index[q_id] = {
+                            "question": question["question_text"],
+                            "answer": question["answer"],
+                            "level": level_name,
+                            "story_title": story["title"],
+                            "keywords": question.get("keywords", []),
+                        }
+        
         return index
 
     def extract_keywords(self, query: str) -> List[str]:
@@ -157,9 +173,10 @@ class QuestionSearchEngine:
 
         top_results = []
         for idx, score in results[:limit]:
-            q_id = self.ids[idx]
-            q_data = self.question_index[q_id]
-            top_results.append((q_data, score))
+            q_id = str(self.ids[idx])
+            if q_id in self.question_index:
+                q_data = self.question_index[q_id]
+                top_results.append((q_data, score))
 
         return top_results
 
