@@ -13,7 +13,7 @@
 (function() {
     'use strict';
 
-    const MANIFEST_URL = 'https://raw.githubusercontent.com/YOUR_USER/YOUR_REPO/main/data/book_manifest.json';
+    const MANIFEST_URL = 'https://raw.githubusercontent.com/Timmy6942025/rp-answers/main/data/book_manifest.json';
 
     const CONFIG = {
         selector: '.book-item, .story-card, .book-card, [class*="book"], [class*="story"]',
