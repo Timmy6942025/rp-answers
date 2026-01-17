@@ -269,3 +269,75 @@ class TestSearchStories:
         exact_match = [r for r in results if r[0] == "Conclusion"]
         assert len(exact_match) > 0
         assert exact_match[0][1] >= 90
+
+
+class TestLevelFunctions:
+    """Test suite for level-related functions."""
+
+    def test_get_levels_returns_list(self):
+        """Test that get_levels returns a list of level codes."""
+        import sys
+
+        sys.path.insert(0, str(Path(__file__).parent.parent))
+        from src.web_app import get_levels
+
+        levels = get_levels()
+
+        assert isinstance(levels, list)
+        assert len(levels) > 0
+        # Should contain common levels
+        assert "A" in levels
+        assert "M" in levels
+
+    def test_get_levels_sorted(self):
+        """Test that levels are sorted alphabetically (HiE at end)."""
+        import sys
+
+        sys.path.insert(0, str(Path(__file__).parent.parent))
+        from src.web_app import get_levels
+
+        levels = get_levels()
+
+        # Check sorted order (HiE should be at end)
+        assert levels == sorted([l for l in levels if l != "HiE"])
+        if "HiE" in levels:
+            assert levels[-1] == "HiE"
+
+    def test_get_stories_by_level(self, sample_questions_data, tmp_path):
+        """Test that stories are correctly filtered by level."""
+        json_file = tmp_path / "test_data.json"
+        import json
+
+        json_file.write_text(json.dumps(sample_questions_data))
+
+        import sys
+
+        sys.path.insert(0, str(Path(__file__).parent.parent))
+        from src.web_app import load_and_group_questions, get_stories_by_level
+
+        import unittest.mock
+
+        with unittest.mock.patch("src.web_app.DATA_PATH", str(json_file)):
+            questions_dict, _ = load_and_group_questions()
+            stories_a = get_stories_by_level(questions_dict, "A")
+            stories_b = get_stories_by_level(questions_dict, "B")
+
+        # Level A should have "Conclusion"
+        assert "Conclusion" in stories_a
+        # Level B should have "Breaking Barriers, Breaking Records"
+        assert "Breaking Barriers, Breaking Records" in stories_b
+        # Level A should NOT have level B's stories
+        assert "Breaking Barriers, Breaking Records" not in stories_a
+
+    def test_get_stories_by_level_returns_sorted(self):
+        """Test that stories by level are sorted alphabetically."""
+        import sys
+
+        sys.path.insert(0, str(Path(__file__).parent.parent))
+        from src.web_app import get_stories_by_level, load_and_group_questions
+
+        questions_dict, _ = load_and_group_questions()
+        stories = get_stories_by_level(questions_dict, "A")
+
+        # Should be sorted
+        assert stories == sorted(stories)

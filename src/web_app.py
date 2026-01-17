@@ -46,6 +46,51 @@ def load_and_group_questions() -> Tuple[Dict[str, List[Dict]], List[str]]:
     return questions_dict, story_list
 
 
+@st.cache_data
+def get_levels() -> List[str]:
+    """
+    Get all unique Reading Plus levels from the data.
+
+    Returns:
+        List of level codes sorted alphabetically (excluding HiE, placed at end)
+    """
+    with open(DATA_PATH, "r", encoding="utf-8") as f:
+        data = json.load(f)
+
+    questions = data.get("questions", [])
+    levels = set(q.get("level", "") for q in questions if q.get("level"))
+
+    # Sort levels, but put HiE at the end
+    sorted_levels = sorted([l for l in levels if l != "HiE"])
+    if "HiE" in levels:
+        sorted_levels.append("HiE")
+
+    return sorted_levels
+
+
+@st.cache_data
+def get_stories_by_level(
+    questions_dict: Dict[str, List[Dict]], level: str
+) -> List[str]:
+    """
+    Get all story titles that have questions for the given level.
+
+    Args:
+        questions_dict: Dictionary mapping story title to list of question dicts
+        level: Reading Plus level code (e.g., "A", "B", "HiE")
+
+    Returns:
+        List of story titles that have at least one question for the level
+    """
+    stories = []
+    for story, questions in questions_dict.items():
+        for q in questions:
+            if q.get("level") == level:
+                stories.append(story)
+                break
+    return sorted(stories)
+
+
 def search_stories(
     query: str, story_list: List[str], limit: int = 5, score_cutoff: float = 60.0
 ) -> List[Tuple[str, float, int]]:
@@ -108,9 +153,38 @@ def main():
         st.session_state.search_results = []
     if "last_query" not in st.session_state:
         st.session_state.last_query = ""
+    if "selected_level" not in st.session_state:
+        st.session_state.selected_level = None
 
     # Load data
     questions_dict, story_list = load_and_group_questions()
+
+    # Get available levels
+    levels = get_levels()
+
+    # Sidebar for level selection
+    st.sidebar.header("📖 Browse by Level")
+    st.sidebar.markdown("Select your Reading Plus level to see available stories:")
+
+    # Level selector
+    selected_level = st.sidebar.selectbox(
+        "Choose Level",
+        options=["All Levels"] + levels,
+        index=0,
+        key="level_selector",
+    )
+
+    if selected_level == "All Levels":
+        st.session_state.selected_level = None
+    else:
+        st.session_state.selected_level = selected_level
+
+    # Get stories for selected level
+    level_stories = []
+    if st.session_state.selected_level:
+        level_stories = get_stories_by_level(
+            questions_dict, st.session_state.selected_level
+        )
 
     # Auto-expand checkbox
     auto_expand = st.checkbox(
@@ -152,11 +226,37 @@ def main():
     elif query and not st.session_state.search_results:
         st.info("No matching stories found. Try a different search term.")
 
+    # Display stories by level (when level selected and no search)
+    if (
+        st.session_state.selected_level
+        and not query
+        and not st.session_state.search_results
+    ):
+        st.divider()
+        st.subheader(f"📚 Stories for Level {st.session_state.selected_level}")
+        st.markdown(f"**{len(level_stories)} stories available**")
+
+        for story in level_stories:
+            question_count = len(questions_dict.get(story, []))
+            with st.expander(f"📖 {story} ({question_count} questions)"):
+                if st.button(
+                    f"View All Q&A",
+                    key=f"level_btn_{story.replace(' ', '_').replace(',', '')}",
+                ):
+                    st.session_state.selected_story = story
+                    st.rerun()
+
     # Display Q&A for selected story
     if st.session_state.selected_story:
         story = st.session_state.selected_story
         st.divider()
-        st.subheader(f"Q&A for: {story}")
+        story_level = None
+        for q in questions_dict.get(story, []):
+            story_level = q.get("level")
+            break
+
+        level_info = f" (Level {story_level})" if story_level else ""
+        st.subheader(f"Q&A for: {story}{level_info}")
 
         if st.button("← Back to search"):
             st.session_state.selected_story = None
@@ -168,9 +268,9 @@ def main():
             st.info(f"**A:** {q.get('answer', '')}")
     else:
         # Show all stories when no search or selection
-        if not query:
+        if not query and not st.session_state.selected_level:
             st.info(
-                f"Showing all {len(story_list)} stories. Use the search box above to find specific stories."
+                f"Showing all {len(story_list)} stories. Use the search box above or select a level from the sidebar."
             )
 
 
