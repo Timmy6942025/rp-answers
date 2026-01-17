@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Reading Plus Highlighter
 // @namespace    http://tampermonkey.net/
-// @version      2.1
+// @version      2.3
 // @description  Highlights Reading Plus stories with answers. Features: fuzzy search, level filtering, click-to-copy, keyboard shortcuts, auto-update, debug mode.
 // @author       Timmy6942025
 // @match        *://*/seereader/api/sr/start*
@@ -16,7 +16,7 @@
 // ==/UserScript==
 
 /**
- * Reading Plus Highlighter Userscript v2.1
+ * Reading Plus Highlighter Userscript v2.3
  *
  * Features:
  * - Auto-highlighting of stories with answers in database
@@ -35,7 +35,7 @@
     'use strict';
 
     // ============== VERSION & CONFIG ==============
-    const VERSION = '2.1';
+    const VERSION = '2.3';
     const SCRIPT_ID = 'reading-plus-highlighter';
 
     const CONFIG = {
@@ -303,7 +303,12 @@
     function updatePageInfo() {
         const pageInfo = shadowRoot.getElementById('rpPageInfo');
         const page = detectReadingPlusPage();
-        pageInfo.innerHTML = `<span class="rp-page-badge rp-page-${page.type}">${page.name}</span>`;
+        if (page.type === 'unknown') {
+            pageInfo.style.display = 'none';
+        } else {
+            pageInfo.style.display = 'inline-block';
+            pageInfo.innerHTML = `<span class="rp-page-badge rp-page-${page.type}">${page.name}</span>`;
+        }
         debugLog('Detected page type:', page.type);
     }
 
@@ -342,7 +347,7 @@
                 justify-content: space-between;
                 align-items: center;
                 padding: 10px 14px;
-                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                background: #475569;
                 color: white;
                 cursor: pointer;
             }
@@ -431,8 +436,8 @@
 
             .rp-input:focus, .rp-select:focus {
                 outline: none;
-                border-color: #667eea;
-                box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.15);
+                border-color: #475569;
+                box-shadow: 0 0 0 3px rgba(71, 85, 105, 0.15);
             }
 
             .rp-btn {
@@ -448,13 +453,13 @@
             }
 
             .rp-btn-primary {
-                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                background: #475569;
                 color: white;
             }
 
             .rp-btn-primary:hover {
                 transform: translateY(-1px);
-                box-shadow: 0 4px 12px rgba(102, 126, 234, 0.35);
+                box-shadow: 0 4px 12px rgba(71, 85, 105, 0.35);
             }
 
             .rp-btn-secondary {
@@ -478,7 +483,7 @@
                 margin-bottom: 6px;
             }
 
-            .rp-status-info { background: #e0e7ff; color: #4338ca; }
+            .rp-status-info { background: #f1f5f9; color: #475569; }
             .rp-status-success { background: #dcfce7; color: #166534; }
             .rp-status-error { background: #fee2e2; color: #991b1b; }
             .rp-status-warning { background: #fef3c7; color: #92400e; }
@@ -487,7 +492,7 @@
                 width: 18px;
                 height: 18px;
                 border: 2px solid #e2e8f0;
-                border-top-color: #667eea;
+                border-top-color: #475569;
                 border-radius: 50%;
                 animation: rp-spin 0.8s linear infinite;
             }
@@ -560,14 +565,14 @@
 
             .rp-result-count {
                 font-weight: 600;
-                color: #667eea;
+                color: #475569;
                 cursor: pointer;
                 padding: 1px 5px;
                 border-radius: 3px;
                 transition: all 0.2s;
             }
 
-            .rp-result-count:hover { background: #e0e7ff; }
+            .rp-result-count:hover { background: #f1f5f9; }
             .rp-result-count.copied { background: #22c55e; color: white; }
 
             .rp-stats-section {
@@ -667,8 +672,12 @@
         // Search and refresh
         shadowRoot.getElementById('rpSearchBtn').addEventListener('click', performSearch);
         shadowRoot.getElementById('rpRefreshBtn').addEventListener('click', () => loadBookManifest(true));
-        searchInput.addEventListener('keypress', (e) => {
-            if (e.key === 'Enter') performSearch();
+        searchInput.addEventListener('input', (e) => {
+            if (e.inputType === 'insertLineBreak' || e.data === null && searchInput.value.endsWith('\n')) {
+                // User pressed Enter, trigger search
+                searchInput.value = searchInput.value.trim();
+                performSearch();
+            }
         });
         levelSelect.addEventListener('change', performSearch);
 
@@ -891,7 +900,11 @@
 
         // Update results count
         const countEl = shadowRoot.getElementById('rpResultsCount');
-        countEl.textContent = results.length + ' found';
+        if (results.length <= 5) {
+            countEl.textContent = results.length + ' found';
+        } else {
+            countEl.textContent = 'Showing 5 of ' + results.length + ' results';
+        }
 
         // Display results
         if (results.length === 0) {
@@ -899,10 +912,16 @@
                 '<div class="rp-result-title">No matches found</div>' +
                 '<div class="rp-result-meta">Try different keywords or level</div>' +
                 '</div>';
+            const expandBtn = shadowRoot.getElementById('rpExpandBtn');
+            if (expandBtn) expandBtn.style.display = 'none';
             return;
         }
 
-        const resultsHTML = results.slice(0, 20).map(book => `
+        const displayResults = results.slice(0, 5);
+        const hasMore = results.length > 5;
+        const totalResults = results.length;
+
+        const resultsHTML = displayResults.map(book => `
             <div class="rp-result-item" data-title="${escapeHtml(book.title)}" data-level="${escapeHtml(book.level)}" data-count="${book.count}">
                 <div class="rp-result-title" title="${escapeHtml(book.title)}">${escapeHtml(book.title)}</div>
                 <div class="rp-result-meta">
@@ -913,6 +932,48 @@
         `).join('');
 
         resultsList.innerHTML = resultsHTML;
+
+        let expandBtn = shadowRoot.getElementById('rpExpandBtn');
+        if (hasMore) {
+            if (!expandBtn) {
+                expandBtn = document.createElement('button');
+                expandBtn.id = 'rpExpandBtn';
+                expandBtn.className = 'rp-btn rp-btn-secondary';
+                expandBtn.textContent = 'Show more results';
+                resultsList.parentNode.insertBefore(expandBtn, resultsList.nextSibling);
+            }
+            expandBtn.style.display = 'block';
+            expandBtn.onclick = function() {
+                const allResultsHTML = results.map(book => `
+                    <div class="rp-result-item" data-title="${escapeHtml(book.title)}" data-level="${escapeHtml(book.level)}" data-count="${book.count}">
+                        <div class="rp-result-title" title="${escapeHtml(book.title)}">${escapeHtml(book.title)}</div>
+                        <div class="rp-result-meta">
+                            <span>Level ${escapeHtml(book.level)}</span>
+                            <span class="rp-result-count" data-count="${book.count}">${book.count} questions</span>
+                        </div>
+                    </div>
+                `).join('');
+                resultsList.innerHTML = allResultsHTML;
+                expandBtn.style.display = 'none';
+                countEl.textContent = totalResults + ' found';
+                resultsList.querySelectorAll('.rp-result-count').forEach(el => {
+                    el.addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        const count = e.target.dataset.count;
+                        navigator.clipboard.writeText(count).then(() => {
+                            e.target.classList.add('copied');
+                            e.target.textContent = 'Copied!';
+                            setTimeout(() => {
+                                e.target.classList.remove('copied');
+                                e.target.textContent = count + ' questions';
+                            }, 1500);
+                        });
+                    });
+                });
+            };
+        } else if (expandBtn) {
+            expandBtn.style.display = 'none';
+        }
 
         // Click-to-copy handlers
         resultsList.querySelectorAll('.rp-result-count').forEach(el => {

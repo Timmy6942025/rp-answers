@@ -5,7 +5,7 @@
     "count": 95
   },
   {
-    "title": "Reading Plus Answers Level A » Quizzma",
+    "title": "Reading Plus Answers Level A \u00bb Quizzma",
     "level": "A",
     "count": 1
   },
@@ -20,34 +20,29 @@
     "count": 79
   },
   {
-    "title": "Level C",
-    "level": "C",
-    "count": 67
-  },
-  {
-    "title": "Level D",
-    "level": "D",
-    "count": 80
-  },
-  {
     "title": "The Tale of Sir IvaineThe Giant BuilderConclusion",
     "level": "E",
     "count": 76
   },
   {
-    "title": "Level F",
-    "level": "F",
-    "count": 276
-  },
-  {
     "title": "Unknown",
     "level": "F",
-    "count": 70
+    "count": 23
   },
   {
     "title": "Fortune and MisfortuneConclusion",
     "level": "G",
-    "count": 279
+    "count": 280
+  },
+  {
+    "title": "Unknown",
+    "level": "G",
+    "count": 43
+  },
+  {
+    "title": "The Perfect Wave",
+    "level": "G",
+    "count": 10
   },
   {
     "title": "Picture of UFO in the Air Blue Sky",
@@ -55,7 +50,7 @@
     "count": 1
   },
   {
-    "title": "Reading Plus Answers Level G » Quizzma",
+    "title": "Reading Plus Answers Level G \u00bb Quizzma",
     "level": "G",
     "count": 1
   },
@@ -65,19 +60,19 @@
     "count": 1
   },
   {
-    "title": "The Perfect Wave",
+    "title": "The Rule Of King Arthur",
     "level": "G",
-    "count": 9
+    "count": 1
   },
   {
     "title": "Unknown",
-    "level": "G",
-    "count": 81
+    "level": "H",
+    "count": 126
   },
   {
-    "title": "Breaking Barriers, Breaking Records",
+    "title": "SI",
     "level": "H",
-    "count": 1
+    "count": 56
   },
   {
     "title": "Inside a Cyclone",
@@ -85,14 +80,14 @@
     "count": 7
   },
   {
-    "title": "Level H",
-    "level": "H",
-    "count": 9
-  },
-  {
-    "title": "Michelle Obama’s Early Years-Part 2",
+    "title": "Michelle Obama\u2019s Early Years-Part 2",
     "level": "H",
     "count": 5
+  },
+  {
+    "title": "Quizzma Latest Articles",
+    "level": "H",
+    "count": 4
   },
   {
     "title": "News in a Flash",
@@ -105,32 +100,52 @@
     "count": 2
   },
   {
-    "title": "Quizzma Latest Articles",
+    "title": "Breaking Barriers, Breaking Records",
     "level": "H",
-    "count": 4
-  },
-  {
-    "title": "SI",
-    "level": "H",
-    "count": 56
-  },
-  {
-    "title": "Unknown",
-    "level": "H",
-    "count": 131
-  },
-  {
-    "title": "Unknown",
-    "level": "HiE",
-    "count": 75
-  },
-  {
-    "title": "Checkmate",
-    "level": "I",
     "count": 1
   },
   {
+    "title": "Unknown",
+    "level": "HIE",
+    "count": 74
+  },
+  {
+    "title": "Unknown",
+    "level": "I",
+    "count": 224
+  },
+  {
+    "title": "How We Got To Now (Six World-Changing Innovations)",
+    "level": "I",
+    "count": 6
+  },
+  {
+    "title": "Microbes, Aliens, Spaceships, Oh My!",
+    "level": "I",
+    "count": 5
+  },
+  {
     "title": "Conquering Pain",
+    "level": "I",
+    "count": 4
+  },
+  {
+    "title": "Everyday Equations",
+    "level": "I",
+    "count": 4
+  },
+  {
+    "title": "Mickey, Minnie and More / The Maker of Movie Magic / Walt Disney\u2019s World",
+    "level": "I",
+    "count": 4
+  },
+  {
+    "title": "Mysterious and Monstrous \u2013 Part 1",
+    "level": "I",
+    "count": 4
+  },
+  {
+    "title": "The Perils Of Gossip",
     "level": "I",
     "count": 4
   },
@@ -140,9 +155,9 @@
     "count": 3
   },
   {
-    "title": "Everyday Equations",
+    "title": "This selection primarily",
     "level": "I",
-    "count": 4
+    "count": 3
   },
   {
     "title": "Fridamania / As Long As I Can Paint",
@@ -150,57 +165,42 @@
     "count": 2
   },
   {
-    "title": "How We Got To Now (Six World-Changing Innovations)",
-    "level": "I",
-    "count": 6
-  },
-  {
-    "title": "Level I",
-    "level": "I",
-    "count": 72
-  },
-  {
-    "title": "Mickey, Minnie and More / The Maker of Movie Magic / Walt Disney’s World",
-    "level": "I",
-    "count": 4
-  },
-  {
-    "title": "Microbes, Aliens, Spaceships, Oh My!",
-    "level": "I",
-    "count": 5
-  },
-  {
-    "title": "Mysterious and Monstrous – Part 1",
-    "level": "I",
-    "count": 4
-  },
-  {
     "title": "Quizzma Latest Articles",
     "level": "I",
     "count": 2
   },
   {
-    "title": "Reading Plus Answers Level I » Quizzma",
+    "title": "Checkmate",
     "level": "I",
     "count": 1
   },
   {
-    "title": "The Perils Of Gossip",
+    "title": "Reading Plus Answers Level I \u00bb Quizzma",
     "level": "I",
-    "count": 3
-  },
-  {
-    "title": "This selection primarily",
-    "level": "I",
-    "count": 3
+    "count": 1
   },
   {
     "title": "Unknown",
-    "level": "I",
-    "count": 245
+    "level": "J",
+    "count": 229
+  },
+  {
+    "title": "The Future Of News",
+    "level": "J",
+    "count": 8
+  },
+  {
+    "title": "What\u2019s In a Dollar \u2013 Know Your Money",
+    "level": "J",
+    "count": 3
   },
   {
     "title": "Going For Gold",
+    "level": "J",
+    "count": 2
+  },
+  {
+    "title": "The Mentor",
     "level": "J",
     "count": 2
   },
@@ -210,9 +210,9 @@
     "count": 1
   },
   {
-    "title": "Level J",
+    "title": "Other Reading Plus Levels",
     "level": "J",
-    "count": 101
+    "count": 1
   },
   {
     "title": "Quizzma Latest Articles",
@@ -220,44 +220,19 @@
     "count": 1
   },
   {
-    "title": "Reading Plus Answers Level J » Quizzma",
+    "title": "Reading Plus Answers Level J \u00bb Quizzma",
     "level": "J",
     "count": 1
   },
   {
-    "title": "The Future Of News",
-    "level": "J",
-    "count": 8
-  },
-  {
-    "title": "The Mentor",
-    "level": "J",
-    "count": 2
+    "title": "Unknown",
+    "level": "K",
+    "count": 159
   },
   {
     "title": "Unknown",
-    "level": "J",
-    "count": 235
-  },
-  {
-    "title": "What’s In a Dollar – Know Your Money",
-    "level": "J",
-    "count": 3
-  },
-  {
-    "title": "Level K",
-    "level": "K",
-    "count": 93
-  },
-  {
-    "title": "Unknown",
-    "level": "K",
-    "count": 171
-  },
-  {
-    "title": "Level L",
     "level": "L",
-    "count": 311
+    "count": 52
   },
   {
     "title": "Quizzma Latest Articles",
@@ -265,9 +240,14 @@
     "count": 3
   },
   {
+    "title": "The races are enjoyable",
+    "level": "M",
+    "count": 129
+  },
+  {
     "title": "Unknown",
-    "level": "L",
-    "count": 149
+    "level": "M",
+    "count": 63
   },
   {
     "title": "Because on a moral basis it is the right thing to do",
@@ -275,14 +255,19 @@
     "count": 30
   },
   {
-    "title": "Having secretly built up its Air Force",
+    "title": "Uni turns his back on Saramama",
     "level": "M",
-    "count": 18
+    "count": 30
   },
   {
     "title": "Kindergarten classroom",
     "level": "M",
     "count": 28
+  },
+  {
+    "title": "Having secretly built up its Air Force",
+    "level": "M",
+    "count": 18
   },
   {
     "title": "MemoryThe Panama CanalJohn Muir and StickeenConclusion",
@@ -293,20 +278,5 @@
     "title": "Quizzma Latest Articles",
     "level": "M",
     "count": 1
-  },
-  {
-    "title": "The races are enjoyable",
-    "level": "M",
-    "count": 128
-  },
-  {
-    "title": "Uni turns his back on Saramama",
-    "level": "M",
-    "count": 30
-  },
-  {
-    "title": "Unknown",
-    "level": "M",
-    "count": 112
   }
 ]
