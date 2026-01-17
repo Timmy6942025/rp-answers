@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reading Plus Highlighter - Test Suite</title>
+    <style>
+        * { box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        h1 { color: #333; }
+        .test-section {
+            background: white;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .test-result {
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 4px;
+        }
+        .test-pass { background: #dcfce7; color: #166534; }
+        .test-fail { background: #fee2e2; color: #991b1b; }
+        .test-pending { background: #fef3c7; color: #92400e; }
+        .book-element {
+            padding: 15px;
+            margin: 10px;
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+        }
+        .book-element.highlighted {
+            background: linear-gradient(120deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+        #test-controls {
+            margin-bottom: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            margin: 5px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        .btn-primary { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; }
+        .btn-secondary { background: #e2e8f0; color: #475569; }
+        .btn-danger { background: #ef4444; color: white; }
+        #test-output {
+            background: #1e293b;
+            color: #e2e8f0;
+            padding: 15px;
+            border-radius: 6px;
+            font-family: monospace;
+            font-size: 12px;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>🧪 Reading Plus Highlighter - Test Suite</h1>
+
+    <div id="test-controls" class="test-section">
+        <h3>Test Controls</h3>
+        <button class="btn-primary" onclick="runAllTests()">Run All Tests</button>
+        <button class="btn-secondary" onclick="clearResults()">Clear Results</button>
+        <button class="btn-danger" onclick="simulateLoadFailure()">Simulate Load Failure</button>
+    </div>
+
+    <div class="test-section">
+        <h3>Test Output</h3>
+        <div id="test-output">Click "Run All Tests" to start...</div>
+    </div>
+
+    <div class="test-section">
+        <h3>Book Elements (for highlighting tests)</h3>
+        <p>These elements simulate Reading Plus story cards:</p>
+        <div id="book-container">
+            <div class="book-element" data-story-title="Conclusion">
+                <strong> - Level A
+            </div>
+Conclusion</strong>            <div class="book-element" data-story-title="Fortune and Misfortune">
+                <strong>Fortune and Misfortune</strong> - Level G
+            </div>
+            <div class="book-element" data-story-title="Inside a Cyclone">
+                <strong>Inside a Cyclone</strong> - Level H
+            </div>
+            <div class="book-element" data-story-title="The Future Of News">
+                <strong>The Future Of News</strong> - Level J
+            </div>
+            <div class="book-element" data-story-title="Kindergarten classroom">
+                <strong>Kindergarten classroom</strong> - Level M
+            </div>
+            <div class="book-element" data-story-title="Unknown Story">
+                <strong>Unknown Story</strong> - Level Z (should NOT be highlighted)
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Mock Tampermonkey API for testing
+        const GM_getValue = (key, defaultValue) => {
+            const stored = localStorage.getItem('gm_' + key);
+            return stored !== null ? JSON.parse(stored) : defaultValue;
+        };
+
+        const GM_setValue = (key, value) => {
+            localStorage.setItem('gm_' + key, JSON.stringify(value));
+        };
+
+        // Test results storage
+        const testResults = [];
+
+        function log(message, type = 'info') {
+            const output = document.getElementById('test-output');
+            const timestamp = new Date().toLocaleTimeString();
+            const prefix = type === 'pass' ? '✅' : type === 'fail' ? '❌' : type === 'pending' ? '⏳' : 'ℹ️';
+            output.innerHTML += `<div>[${timestamp}] ${prefix} ${message}</div>`;
+            output.scrollTop = output.scrollHeight;
+        }
+
+        function clearResults() {
+            document.getElementById('test-output').innerHTML = 'Cleared. Click "Run All Tests" to start...';
+            testResults.length = 0;
+        }
+
+        function addResult(name, passed, details = '') {
+            testResults.push({ name, passed, details });
+            log(`${passed ? 'PASS' : 'FAIL'}: ${name} ${details ? '- ' + details : ''}`, passed ? 'pass' : 'fail');
+        }
+
+        // Test 1: Utility Functions
+        function testUtilities() {
+            log('Testing utility functions...', 'pending');
+
+            // Escape HTML test
+            const testCases = [
+                { input: '<script>alert("xss")</script>', expected: '&lt;script&gt;alert(&quot;xss&quot;)&lt;/script&gt;' },
+                { input: 'Normal text', expected: 'Normal text' },
+                { input: 'Text with "quotes" and \'apostrophes\'', expected: 'Text with &quot;quotes&quot; and &apos;apostrophes&apos;' },
+                { input: null, expected: '' },
+                { input: '', expected: '' }
+            ];
+
+            testCases.forEach(tc => {
+                const input = tc.input;
+                const expected = tc.expected;
+                const div = document.createElement('div');
+                div.textContent = input;
+                const result = div.innerHTML;
+
+                if (result === expected) {
+                    addResult(`escapeHtml("${tc.input?.substring(0, 20) || 'null'}")`, true, 'Correctly escaped');
+                } else {
+                    addResult(`escapeHtml("${tc.input?.substring(0, 20) || 'null'}")`, false, `Expected "${expected}", got "${result}"`);
+                }
+            });
+
+            // Normalize text test
+            const normalizeTests = [
+                { input: '  HELLO   WORLD  ', expected: 'hello world' },
+                { input: 'Test-Case', expected: 'test-case' },
+                { input: null, expected: '' }
+            ];
+
+            normalizeTests.forEach(tc => {
+                const result = String(tc.input || '').toLowerCase().trim().replace(/\s+/g, ' ');
+                if (result === tc.expected) {
+                    addResult(`normalizeText("${tc.input}")`, true);
+                } else {
+                    addResult(`normalizeText("${tc.input}")`, false, `Expected "${tc.expected}", got "${result}"`);
+                }
+            });
+        }
+
+        // Test 2: Fuzzy Match
+        function testFuzzyMatch() {
+            log('Testing fuzzy matching algorithm...', 'pending');
+
+            function fuzzyMatch(title, manifestTitle) {
+                const t1 = String(title).toLowerCase().trim().replace(/\s+/g, ' ');
+                const t2 = String(manifestTitle).toLowerCase().trim().replace(/\s+/g, ' ');
+
+                if (t1 === t2) return 1.0;
+                if (t1.includes(t2) || t2.includes(t1)) return 0.9;
+
+                const words1 = t1.split(' ').filter(w => w.length > 2);
+                const words2 = t2.split(' ').filter(w => w.length > 2);
+
+                if (words1.length === 0 || words2.length === 0) return 0;
+
+                const matches = words1.filter(w => words2.some(w2 => w2.startsWith(w) || w.startsWith(w2)));
+                return matches.length / Math.max(words1.length, words2.length);
+            }
+
+            const tests = [
+                { t1: 'Conclusion', t2: 'Conclusion', min: 0.99, desc: 'Exact match' },
+                { t1: 'Conclusion', t2: 'conclusion', min: 0.99, desc: 'Case insensitive' },
+                { t1: 'Fortune and Misfortune', t2: 'Fortune and MisfortuneConclusion', min: 0.8, desc: 'Partial match' },
+                { t1: 'Inside a Cyclone', t2: 'Cyclone', min: 0.5, desc: 'Substring match' },
+                { t1: 'Unknown Story', t2: 'Known Story', min: 0, max: 0.5, desc: 'No match' }
+            ];
+
+            tests.forEach(tc => {
+                const score = fuzzyMatch(tc.t1, tc.t2);
+                const passed = tc.max ? score <= tc.max : score >= tc.min;
+                addResult(`fuzzyMatch("${tc.t1}", "${tc.t2}")`, passed, `Score: ${score.toFixed(2)} (${tc.desc})`);
+            });
+        }
+
+        // Test 3: DOM Manipulation
+        function testDOMManipulation() {
+            log('Testing DOM manipulation...', 'pending');
+
+            // Test book element detection
+            const container = document.getElementById('book-container');
+            const bookElements = container.querySelectorAll('[data-story-title]');
+
+            if (bookElements.length === 6) {
+                addResult('Book element detection', true, 'Found 6 elements');
+            } else {
+                addResult('Book element detection', false, `Expected 6, found ${bookElements.length}`);
+            }
+
+            // Test title extraction
+            const firstBook = bookElements[0];
+            const title = firstBook.getAttribute('data-story-title');
+
+            if (title === 'Conclusion') {
+                addResult('Title extraction from data attribute', true);
+            } else {
+                addResult('Title extraction from data attribute', false, `Expected "Conclusion", got "${title}"`);
+            }
+        }
+
+        // Test 4: Highlight Application
+        function testHighlighting() {
+            log('Testing highlight application...', 'pending');
+
+            const container = document.getElementById('book-container');
+            const books = container.querySelectorAll('[data-story-title]');
+
+            // Apply highlights to first 5 books (excluding the unknown one)
+            for (let i = 0; i < 5; i++) {
+                const book = books[i];
+                const title = book.getAttribute('data-story-title');
+
+                // Simulate highlighting
+                book.classList.add('rp-highlight');
+                book.style.position = 'relative';
+
+                // Add badge
+                const badge = document.createElement('span');
+                badge.className = 'rp-badge';
+                badge.textContent = '10 answers';
+                book.appendChild(badge);
+            }
+
+            const highlightedCount = container.querySelectorAll('.rp-highlight').length;
+            const badgeCount = container.querySelectorAll('.rp-badge').length;
+
+            addResult('Highlight application', highlightedCount === 5, `${highlightedCount} highlighted`);
+            addResult('Badge addition', badgeCount === 5, `${badgeCount} badges added`);
+
+            // Verify the unknown story was NOT highlighted
+            const unknownStory = books[5];
+            if (!unknownStory.classList.contains('rp-highlight')) {
+                addResult('Unknown story NOT highlighted', true);
+            } else {
+                addResult('Unknown story NOT highlighted', false, 'Unknown story was incorrectly highlighted');
+            }
+        }
+
+        // Test 5: Search Functionality
+        function testSearch() {
+            log('Testing search functionality...', 'pending');
+
+            // Simulate a manifest
+            const manifest = [
+                { title: 'Conclusion', level: 'A', count: 95 },
+                { title: 'Fortune and Misfortune', level: 'G', count: 279 },
+                { title: 'Inside a Cyclone', level: 'H', count: 7 },
+                { title: 'The Future Of News', level: 'J', count: 8 },
+                { title: 'Kindergarten classroom', level: 'M', count: 28 }
+            ];
+
+            function searchBooks(query, level) {
+                let results = [];
+
+                if (query) {
+                    results = manifest.filter(book => {
+                        const t1 = String(query).toLowerCase().trim();
+                        const t2 = book.title.toLowerCase();
+                        return t2.includes(t1) || t1.includes(t2);
+                    });
+                } else if (level) {
+                    results = manifest.filter(book => book.level === level);
+                }
+
+                return results.sort((a, b) => b.count - a.count);
+            }
+
+            // Test search by name
+            const cycloneResults = searchBooks('cyclone', null);
+            if (cycloneResults.length === 1 && cycloneResults[0].title === 'Inside a Cyclone') {
+                addResult('Search by name: "cyclone"', true);
+            } else {
+                addResult('Search by name: "cyclone"', false);
+            }
+
+            // Test search by level
+            const levelGResults = searchBooks(null, 'G');
+            if (levelGResults.length === 1 && levelGResults[0].title === 'Fortune and Misfortune') {
+                addResult('Search by level: "G"', true);
+            } else {
+                addResult('Search by level: "G"', false, `Found ${levelGResults.length} results`);
+            }
+
+            // Test search with no results
+            const noResults = searchBooks('xyznonexistent', null);
+            if (noResults.length === 0) {
+                addResult('Search with no results', true);
+            } else {
+                addResult('Search with no results', false);
+            }
+        }
+
+        // Test 6: Cache Functionality
+        function testCache() {
+            log('Testing cache functionality...', 'pending');
+
+            const testManifest = [
+                { title: 'Test Book 1', level: 'A', count: 10 },
+                { title: 'Test Book 2', level: 'B', count: 20 }
+            ];
+
+            // Save to cache
+            const timestamp = Date.now();
+            const cacheData = { manifest: testManifest, timestamp };
+            GM_setValue('reading-plus-highlighter_cache', JSON.stringify(cacheData));
+
+            // Load from cache
+            const loaded = GM_getValue('reading-plus-highlighter_cache', null);
+            const parsed = loaded ? JSON.parse(loaded) : null;
+
+            if (parsed && parsed.manifest.length === 2) {
+                addResult('Cache save and load', true);
+            } else {
+                addResult('Cache save and load', false, 'Cache not working');
+            }
+
+            // Test cache expiry (simulate old cache)
+            const oldTimestamp = Date.now() - (25 * 60 * 60 * 1000); // 25 hours ago
+            const oldCacheData = { manifest: testManifest, timestamp: oldTimestamp };
+            GM_setValue('reading-plus-highlighter_cache_old', JSON.stringify(oldCacheData));
+
+            const cacheExpiryMs = 24 * 60 * 60 * 1000;
+            const loadedOld = GM_getValue('reading-plus-highlighter_cache_old', null);
+            const parsedOld = loadedOld ? JSON.parse(loadedOld) : null;
+            const isExpired = parsedOld && (Date.now() - parsedOld.timestamp > cacheExpiryMs);
+
+            if (isExpired) {
+                addResult('Cache expiry detection', true);
+            } else {
+                addResult('Cache expiry detection', false);
+            }
+        }
+
+        // Test 7: Keyboard Shortcuts
+        function testKeyboardShortcuts() {
+            log('Testing keyboard shortcut detection...', 'pending');
+
+            function detectShortcut(e) {
+                if ((e.ctrlKey || e.metaKey) && (e.key === '/' || e.key === '\\')) {
+                    return 'toggle';
+                }
+                if (e.key === 'F' && !e.ctrlKey && !e.metaKey) {
+                    return 'mini';
+                }
+                if (e.key === 'D' && !e.ctrlKey && !e.metaKey) {
+                    return 'debug';
+                }
+                if (e.key === 'Escape') {
+                    return 'close';
+                }
+                return null;
+            }
+
+            const tests = [
+                { event: { ctrlKey: true, key: '/' }, expected: 'toggle', desc: 'Ctrl+/' },
+                { event: { ctrlKey: true, key: '\\' }, expected: 'toggle', desc: 'Ctrl+\\' },
+                { event: { metaKey: true, key: '/' }, expected: 'toggle', desc: 'Cmd+/' },
+                { event: { ctrlKey: false, metaKey: false, key: 'F' }, expected: 'mini', desc: 'F key' },
+                { event: { ctrlKey: false, metaKey: false, key: 'D' }, expected: 'debug', desc: 'D key' },
+                { event: { key: 'Escape' }, expected: 'close', desc: 'Escape' },
+                { event: { ctrlKey: false, metaKey: false, key: 'A' }, expected: null, desc: 'Random key' }
+            ];
+
+            tests.forEach(tc => {
+                const result = detectShortcut(tc.event);
+                if (result === tc.expected) {
+                    addResult(`Keyboard shortcut: ${tc.desc}`, true);
+                } else {
+                    addResult(`Keyboard shortcut: ${tc.desc}`, false, `Expected "${tc.expected}", got "${result}"`);
+                }
+            });
+        }
+
+        // Test 8: Page Detection
+        function testPageDetection() {
+            log('Testing page detection...', 'pending');
+
+            function detectPage(url) {
+                if (url.includes('/seereader/api/sr/start')) {
+                    return { type: 'reader', name: 'SeeReader' };
+                }
+                if (url.includes('/dashboard')) {
+                    return { type: 'dashboard', name: 'Dashboard' };
+                }
+                if (url.includes('/student')) {
+                    return { type: 'student', name: 'Student Portal' };
+                }
+                return { type: 'unknown', name: 'Unknown' };
+            }
+
+            const tests = [
+                { url: 'https://example.readingplus.com/seereader/api/sr/start?sid=123', expected: 'reader' },
+                { url: 'https://example.readingplus.com/dashboard/home', expected: 'dashboard' },
+                { url: 'https://example.readingplus.com/student/assignments', expected: 'student' },
+                { url: 'https://other-site.com/page', expected: 'unknown' }
+            ];
+
+            tests.forEach(tc => {
+                const result = detectPage(tc.url);
+                if (result.type === tc.expected) {
+                    addResult(`Page detection: ${tc.url.substring(0, 40)}...`, true);
+                } else {
+                    addResult(`Page detection: ${tc.url.substring(0, 40)}...`, false, `Expected "${tc.expected}", got "${result.type}"`);
+                }
+            });
+        }
+
+        // Run all tests
+        function runAllTests() {
+            clearResults();
+            log('Starting test suite...', 'pending');
+
+            setTimeout(() => {
+                try {
+                    testUtilities();
+                    testFuzzyMatch();
+                    testDOMManipulation();
+                    testHighlighting();
+                    testSearch();
+                    testCache();
+                    testKeyboardShortcuts();
+                    testPageDetection();
+
+                    // Summary
+                    const passed = testResults.filter(r => r.passed).length;
+                    const failed = testResults.filter(r => !r.passed).length;
+                    log(`\n📊 Test Summary: ${passed} passed, ${failed} failed`, passed === 0 ? 'fail' : failed === 0 ? 'pass' : 'pending');
+
+                } catch (error) {
+                    log(`Test suite error: ${error.message}`, 'fail');
+                    console.error(error);
+                }
+            }, 100);
+        }
+
+        // Simulate load failure
+        function simulateLoadFailure() {
+            log('Simulating load failure...', 'pending');
+
+            // Clear localStorage to simulate no cache
+            localStorage.clear();
+
+            // Try to load from cache
+            const cached = GM_getValue('reading-plus-highlighter_cache', null);
+
+            if (!cached) {
+                addResult('Load failure simulation', true, 'Correctly detected no cached data');
+            } else {
+                addResult('Load failure simulation', false, 'Should have no cached data');
+            }
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            log('Test suite loaded. Click "Run All Tests" to begin.', 'info');
+        });
+    </script>
+</body>
+</html>

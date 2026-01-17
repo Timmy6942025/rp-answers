@@ -1,112 +1,195 @@
-# Reading Plus Book Highlighter
+# Reading Plus Highlighter v2.1
 
-A Tampermonkey userscript that highlights books/stories on Reading Plus that have answers in the database.
+A powerful Tampermonkey userscript that automatically highlights Reading Plus stories with answers available in the database.
 
-## Installation
+## 🚀 Quick Installation
 
-1. Install the [Tampermonkey](https://www.tampermonkey.net/) extension for your browser
-2. Click the Tampermonkey icon and select "Create a new script"
-3. Delete any default code and paste the contents of `reading_plus_highlighter.user.js`
-4. Save the script (File → Save or Ctrl+S)
+1. Install [Tampermonkey](https://www.tampermonkey.net/) or [Violentmonkey](https://violentmonkey.github.io/)
+2. Click the extension icon → "Create a new script"
+3. Delete all default code
+4. Paste contents of `reading_plus_highlighter.user.js`
+5. Save (Ctrl+S)
+6. Refresh any Reading Plus page
 
-## Configuration
+## ✨ Features
 
-### Updating the Manifest URL
+| Feature | Description |
+|---------|-------------|
+| **Auto-Highlighting** | Automatically highlights stories with answers |
+| **Fuzzy Search** | Find stories even with partial titles |
+| **Level Filtering** | Filter by all 14 Reading Plus levels (A-M + HiE) |
+| **Click-to-Copy** | Click question counts to copy them |
+| **Keyboard Shortcuts** | Ctrl+/ toggle, F mini mode, D debug mode |
+| **Debug Mode** | Toggle with 🐛 button for troubleshooting |
+| **Mini Mode** | Compact panel (press F) |
+| **Offline Support** | Works offline with cached data (24hr) |
+| **Performance Metrics** | Shows load time and search count |
+| **Shadow DOM** | Complete CSS isolation |
 
-The script uses a placeholder URL for the book manifest. You must update this before using:
+## ⌨️ Keyboard Shortcuts
 
-```javascript
-// Change this line in the script:
-const MANIFEST_URL = 'https://raw.githubusercontent.com/Timmy6942025/rp-answers/main/data/book_manifest.json';
-```
+| Shortcut | Action |
+|----------|--------|
+| `Ctrl + /` | Toggle panel visibility |
+| `F` | Toggle mini mode |
+| `D` | Toggle debug mode |
+| `Esc` | Close panel |
 
-Replace `YOUR_USER` and `YOUR_REPO` with your GitHub username and repository name.
+## 🎯 Page Detection
 
-If your manifest is hosted elsewhere, update the URL accordingly.
+The script automatically detects these Reading Plus pages:
 
-### CSS Selector Configuration
+| Page Type | URL Pattern |
+|-----------|-------------|
+| SeeReader | `/seereader/api/sr/start*` |
+| Dashboard | `/dashboard/*` |
+| Student Portal | `/student/*` |
+| General | `*.readingplus.com/*` |
 
-The script searches for book elements using a CSS selector. The default may not match Reading Plus's actual structure:
+## 📊 Database Coverage
 
-```javascript
-const CONFIG = {
-    selector: '.book-item, .story-card, .book-card, [class*="book"], [class*="story"]',
-    // ...
-};
-```
+| Metric | Value |
+|--------|-------|
+| Total Stories | 62 |
+| Total Levels | 14 (A-M + HiE) |
+| Questions | 3,359 |
+| Cache Duration | 24 hours |
 
-To find the correct selector:
-
-1. Enable debug mode by setting `debugMode: true`
-2. Open the browser console (F12)
-3. Navigate to Reading Plus
-4. Run `RP.getElements()` in the console to see all found elements
-5. Check the console output for element titles and adjust the selector
-
-Common Reading Plus selectors to try:
-- `.book-item`
-- `.story-card`
-- `.book-card`
-- `. passage-card`
-- `[data-testid*="book"]`
-- `.book-grid item`
-
-### Visual Customization
-
-Modify these values in the CONFIG object:
-
-```javascript
-const CONFIG = {
-    highlightClass: 'rp-has-answers',
-    badgeHtml: '<span class="rp-answer-badge" style="...">Has Answers</span>',
-    // Change the border color
-    // Change the badge text
-};
-```
-
-## Features
-
-- **Fuzzy matching**: Matches story titles even with slight differences
-- **Visual indicators**: Green border and "Has Answers" badge
-- **Debug mode**: Helps identify the correct CSS selectors
-- **Console logging**: Shows match details in browser console
-
-## Debug Mode
+## 🐛 Debug Mode
 
 Enable debug mode for troubleshooting:
 
+1. Click the 🐛 button in the panel header
+2. Open browser console (F12)
+3. Look for `[RP Highlighter v2.1]` logs
+
+Debug mode shows:
+- Element detection attempts
+- Match scores
+- Load times
+- Network requests
+
+## 🔧 Troubleshooting
+
+### No stories highlighted
+
+1. Check browser console for errors
+2. Verify internet connection
+3. Try refreshing the page
+4. Click "Refresh" button in panel
+5. Enable debug mode to see detection logs
+
+### Panel not showing
+
+1. Check Tampermonkey is enabled
+2. Verify script is installed and enabled
+3. Try reloading the page
+4. Check for console errors
+5. Make sure you're on a Reading Plus URL
+
+### Manifest load failed
+
+- Script will automatically use cached data
+- Click "Refresh" to retry
+- Check internet connection
+- Manifest URL: `https://raw.githubusercontent.com/Timmy6942025/rp-answers/main/data/book_manifest.json`
+
+### Stories highlighting incorrectly
+
+The fuzzy matching threshold can be adjusted in the script:
+
 ```javascript
 const CONFIG = {
-    debugMode: true,
+    matchThreshold: 0.6, // Increase to 0.7 or 0.8 for stricter matching
     // ...
 };
 ```
 
-In debug mode:
-- All potential book elements are logged to console
-- Run `RP.getElements()` to get a list of all found elements
-- Match results are shown with scores
+## 🔒 Permissions
 
-## Troubleshooting
+The script requires these Tampermonkey permissions:
 
-### No elements highlighted
+- `@match` - Access Reading Plus pages
+- `@grant GM_xmlhttpRequest` - Fetch manifest from GitHub
+- `@grant GM_setValue` - Cache manifest locally
+- `@grant GM_getValue` - Retrieve cached manifest
+- `@connect` - Connect to raw.githubusercontent.com
 
-1. Check the browser console for errors
-2. Verify the manifest URL is accessible
-3. Enable debug mode to see what elements are being found
-4. Update the CSS selector to match the actual page structure
+## 📱 Mini Mode
 
-### Wrong elements highlighted
+Press `F` or click the ◧ button to switch to mini mode:
 
-Adjust the CSS selector to be more specific, or increase the fuzzy match threshold:
+- Hides search controls
+- Shows only stats
+- Takes less screen space
+- Press `F` again or click header to restore
 
-```javascript
-// In findMatchingBook(), change 0.6 to a higher value
-if (score > bestScore && score >= 0.8) {  // stricter matching
+## 💾 Caching
+
+The script caches the manifest locally for:
+
+- Offline access (up to 24 hours)
+- Faster page loads
+- Reduced API calls
+
+To clear cache:
+1. Disable the script
+2. Clear browser localStorage
+3. Re-enable the script
+
+## 🔄 Version History
+
+### v2.1 (Current)
+- Added mini mode (F key)
+- Added page type detection
+- Added performance metrics
+- Improved offline mode
+- Added refresh button
+- Enhanced Reading Plus selectors
+- Added version badge
+
+### v2.0
+- Complete rewrite
+- Shadow DOM for style isolation
+- Click-to-copy question counts
+- Keyboard shortcuts
+- Debug mode
+- Loading states
+- Better error handling
+
+### v1.0
+- Initial release
+- Basic highlighting
+- Simple search
+
+## 📁 Files
+
+```
+userscripts/
+├── reading_plus_highlighter.user.js  # Main userscript
+├── test-suite.html                   # Test suite (for development)
+└── README.md                         # This file
 ```
 
-### Manifest not loading
+## 🤝 Contributing
 
-- Verify the raw GitHub URL is correct
-- Ensure the repository is public
-- Check that `book_manifest.json` exists in the specified path
+To update the book manifest:
+
+```bash
+# Generate updated manifest from database
+python3 -c "
+import json
+data = json.load(open('data/ULTRACOMPLETE_V4_reading_plus.json'))
+# ... aggregation logic ...
+json.dump(manifest, open('data/book_manifest.json', 'w'))
+```
+
+Then commit and push the updated manifest.
+
+## 📄 License
+
+MIT License - See repository for details.
+
+## ⚠️ Disclaimer
+
+This is an unofficial tool. Use at your own risk. Not affiliated with Reading Plus or any educational institution.
